@@ -1,19 +1,13 @@
 "use client";
 
-/* eslint-disable @next/next/no-img-element -- Local Figma assets retain their original SVG dimensions. */
 import { useState } from "react";
-
-function Asset({ file, className = "", alt = "" }: { file: string; className?: string; alt?: string }) {
-  return <img src={`/prototype/${file}`} className={className} alt={alt} draggable={false} />;
-}
+import Asset from "./prototype-asset";
 
 export default function HomePrototype() {
   const [showBanner, setShowBanner] = useState(true);
 
   return (
-    <div className="prototype-screen" data-figma-node="289:3352">
-      <div className="prototype-scroll" tabIndex={0} role="region" aria-label="메인 홈 스크롤 영역">
-        <div className="prototype-content">
+    <div data-figma-node="289:3352">
       <header className="prototype-header">
         <div className="prototype-status" aria-hidden="true">
           <span className="prototype-time">9:41</span>
@@ -65,16 +59,6 @@ export default function HomePrototype() {
         <button className="prototype-banner-close" type="button" aria-label="고객의 소리 안내 닫기" onClick={() => setShowBanner(false)}><Asset file="close.svg"/></button>
       </aside>}
 
-        </div>
-      </div>
-
-      <nav className="prototype-navigation" aria-label="앱 하단 메뉴">
-        <button type="button" className="prototype-nav-item is-active" aria-current="page" onClick={(event) => event.currentTarget.closest(".prototype-screen")?.querySelector(".prototype-scroll")?.scrollTo({ top: 0, behavior: "smooth" })}>
-          <span className="prototype-nav-icon prototype-home-icon"><Asset file="home.svg"/><Asset file="home-door.svg"/></span><span>홈</span>
-        </button>
-        <div className="prototype-nav-item"><span className="prototype-nav-icon"><Asset file="products.svg"/></span><span>금융상품</span></div>
-        <div className="prototype-nav-item"><span className="prototype-nav-icon"><Asset file="menu.svg"/></span><span>전체</span></div>
-      </nav>
     </div>
   );
 }

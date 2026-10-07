@@ -109,3 +109,5 @@ h1 { font-size: 23px; font-weight: 700; letter-spacing: -1px; line-height: 1.2; 
 .prototype-home-icon img { position: absolute; }.prototype-home-icon img:first-child { left: 1.5px; top: 1.5px; }.prototype-home-icon img:last-child { left: 0; top: 0; }
 @media (prefers-reduced-motion: reduce) { .device-frame { scroll-behavior: auto; } }
 
+
+

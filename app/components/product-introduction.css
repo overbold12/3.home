@@ -1,0 +1,24 @@
+﻿.product-intro-frame {
+  width: 375px;
+  min-height: 812px;
+  background: #fff;
+  color: #000;
+  font-family: "Prototype Spoqa Han Sans", "Malgun Gothic", sans-serif;
+}
+
+.product-intro-header { position: relative; height: 100px; }
+.product-intro-status { position: relative; height: 44px; }
+.product-intro-time { position: absolute; left: 21px; top: 12px; width: 54px; font-size: 15px; font-weight: 700; line-height: 22px; letter-spacing: -.3px; text-align: center; }
+.product-intro-cellular { position: absolute; right: 64px; top: 17.667px; }
+.product-intro-wifi { position: absolute; right: 43.667px; top: 17.332px; }
+.product-intro-batteryBorder { position: absolute; right: 16.67px; top: 17.33px; width: 22px; height: 11.333px; border: 1px solid #000; border-radius: 2.667px; opacity: .35; }
+.product-intro-batteryFill { position: absolute; right: 18.67px; top: 19.33px; width: 18px; height: 7.333px; border-radius: 1.333px; background: #000; }
+.product-intro-batteryCap { position: absolute; right: 14.34px; top: 21px; }
+.product-intro-back { position: absolute; left: 20px; top: 56px; display: grid; place-items: center; width: 32px; height: 32px; padding: 0; border: 0; background: transparent; }
+.product-intro-main { padding: 32px 32px 0; }
+.product-intro-main .product-intro-title { margin: 0; font-size: 24px; line-height: 34px; font-weight: 700; letter-spacing: -.2px; }
+.product-intro-list { display: grid; gap: 12px; margin-top: 32px; }
+.product-intro-card { position: relative; display: flex; align-items: center; height: 88px; padding: 0 31px; border: 1px solid #ebebeb; border-radius: 8px; background: #fff; }
+.product-intro-card strong { font-size: 16px; font-weight: 700; line-height: 24px; letter-spacing: -.1px; }
+.product-intro-chevron { position: absolute; right: 31px; top: 35px; display: grid; place-items: center; width: 16px; height: 16px; }
+

@@ -1,7 +1,8 @@
 ﻿"use client";
 
 import { useRef, useState, type ReactNode } from "react";
-import HomePrototype from "./components/home-prototype";
+import PrototypeView, { prototypePageNames, type PrototypePage } from "./components/prototype-view";
+import type { PrototypeTab } from "./components/prototype-navigation";
 
 function Icon({ name, size = 18 }: { name: string; size?: number }) {
   const paths: Record<string, ReactNode> = {
@@ -15,14 +16,23 @@ function Icon({ name, size = 18 }: { name: string; size?: number }) {
 }
 
 export default function Home() {
-  const currentPageName = "메인 홈";
+  const [currentPage, setCurrentPage] = useState<PrototypePage>("home");
+  const [selectedTab, setSelectedTab] = useState<PrototypeTab>("home");
+  const currentPageName = prototypePageNames[currentPage];
   const [prototypeVersion, setPrototypeVersion] = useState(0);
   const [notice, setNotice] = useState("");
   const stage = useRef<HTMLElement>(null);
 
   function restartPrototype() {
+    setCurrentPage("home");
+    setSelectedTab("home");
     setPrototypeVersion((version) => version + 1);
     setNotice("");
+  }
+
+  function navigatePrototype(tab: PrototypeTab) {
+    setSelectedTab(tab);
+    if (tab !== "all") setCurrentPage(tab);
   }
 
   async function toggleFullscreen() {
@@ -59,7 +69,7 @@ export default function Home() {
                 <h3 id="current-page-name">{currentPageName}</h3>
               </div>
               <div className="device-frame" role="region" aria-labelledby="current-page-name">
-                <HomePrototype key={prototypeVersion}/>
+                <PrototypeView key={prototypeVersion} page={currentPage} selectedTab={selectedTab} onNavigate={navigatePrototype}/>
               </div>
               <div className="device-caption">모바일 프레임 <span>·</span> 인터랙티브 미리보기</div>
             </div>
