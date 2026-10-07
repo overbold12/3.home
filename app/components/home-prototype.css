@@ -13,7 +13,8 @@
 }
 
 .prototype-account-card .prototype-account-trigger,
-.prototype-service-card .prototype-credit-trigger {
+.prototype-service-card .prototype-credit-trigger,
+.prototype-service-card .prototype-chat-trigger {
   position: absolute;
   inset: 0;
   width: 100%;

@@ -1,0 +1,45 @@
+@font-face { font-family: "Prototype Noto Sans KR"; src: url("/prototype/NotoSansKR.ttf") format("truetype"); font-weight: 100 900; font-style: normal; font-display: swap; }
+.chat-consultation-frame { position: relative; width: 375px; height: 812.698px; overflow: hidden; background: #fff; color: #333; font-family: "Prototype Noto Sans KR", "Malgun Gothic", sans-serif; }
+.chat-reference-crop { position: relative; overflow: hidden; }
+.chat-reference-crop img { position: absolute; width: 375px; height: 812.698px; object-fit: cover; pointer-events: none; }
+.chat-status { position: absolute; top: 0; left: 0; width: 375px; height: 32.937px; }
+.chat-status img { top: 0; left: 0; }
+.chat-header { position: absolute; top: 32.94px; left: 0; width: 375px; height: 45.635px; background: #f4f9fc; }
+.chat-close { position: absolute; left: 19.05px; top: 14.68px; display: block; width: 17.857px; height: 17.857px; padding: 0; border: 0; background: transparent; }
+.chat-close img { width: 100%; height: 100%; }
+.chat-header .chat-header-title { position: absolute; left: 103.1745px; top: 8.73px; width: 168.651px; color: #202020; font-size: 15.873px; line-height: 22.619px; font-weight: 500; text-align: center; }
+.chat-end { position: absolute; left: 303.17px; top: 8.33px; display: block; width: 63.492px; height: 29.365px; padding-top: 3.17px; border-radius: 3.968px; background: #b3b3b3; color: #fff; font-size: 13.492px; line-height: 20.635px; font-weight: 700; text-align: center; }
+.chat-conversation-background { position: absolute; left: 0; top: 78.57px; width: 375px; height: 690.476px; background: #d0d7df; }
+.chat-date { position: absolute; left: 119.44px; top: 95.63px; width: 128.968px; height: 20.635px; border-radius: 10.317px; background: #a8afb5; color: #fff; font-size: 13.492px; line-height: 20.635px; font-weight: 400; text-align: center; }
+.chat-avatar { position: absolute; left: 7.14px; width: 29.762px; height: 29.762px; }
+.chat-avatar img { left: -7.14px; top: -125px; }
+.chat-avatar-greeting { top: 125px; }
+.chat-avatar-topics { top: 380.16px; }
+.chat-greeting { position: absolute; top: 125.4px; left: 40.87px; width: 219.048px; height: 236.508px; padding: 5.556px 8.333px 5.952px; overflow: hidden; border-radius: 0 13.889px 13.889px; background: #fff; }
+.chat-illustration { width: 202.381px; height: 185.317px; }
+.chat-illustration img { left: -49.21px; top: -130.95px; }
+.chat-greeting p { padding-top: 3.571px; font-size: 12.698px; line-height: 17.46px; font-weight: 400; white-space: nowrap; }
+.chat-time { position: absolute; left: 264.29px; width: 75.397px; color: #606060; font-size: 11.905px; font-weight: 400; }
+.chat-time-greeting { top: 348.41px; line-height: 15.873px; }
+.chat-time-topics { top: 682.54px; line-height: 16.667px; }
+.chat-topic-introduction { position: absolute; left: 40.87px; top: 380.16px; width: 219.048px; height: 137.698px; padding: 7.937px 8.333px 5.952px; overflow: hidden; border-radius: 0 13.889px 13.889px; background: #fff; }
+.chat-topic-banner { width: 202.381px; height: 101.587px; }
+.chat-topic-banner img { left: -49.21px; top: -388.1px; }
+.chat-topic-introduction p { padding-top: 1.587px; font-size: 13.492px; line-height: 17.857px; font-weight: 400; white-space: nowrap; }
+.chat-topics { position: absolute; top: 526.98px; left: 41.27px; width: 218.254px; overflow: hidden; border-radius: 0 13.889px 13.889px; background: #fff; }
+.chat-topic { position: relative; display: flex; align-items: center; gap: 4.762px; height: 33.968px; padding: 0 11.508px 0 19.048px; }
+.chat-topic + .chat-topic { margin-top: .595px; }
+.chat-topic + .chat-topic::before { position: absolute; top: -.595px; left: 0; width: 202.381px; height: .595px; background: #dee4e8; content: ""; }
+.chat-topic p { flex: 1; font-size: 13.492px; line-height: 18.254px; font-weight: 400; }
+.chat-topic img { width: 7.937px; height: 11.111px; }
+.chat-scrollbar { position: absolute; top: 84.13px; left: 367.86px; width: 7.143px; height: 629.762px; border-radius: 3.571px; background: #f5f5f5; }
+.chat-scroll-top { position: absolute; top: 619.44px; left: 329.37px; width: 36.508px; height: 36.508px; }
+.chat-scroll-top img:first-child { width: 36.508px; height: 36.508px; }
+.chat-scroll-top img:last-child { position: absolute; top: 9.53px; left: 8.73px; width: 19.048px; height: 14.286px; }
+.chat-message-bar { position: absolute; top: 722.22px; left: 9.13px; width: 357.54px; height: 37.698px; border-radius: 18.849px; background: #fff; }
+.chat-camera { position: absolute; top: 9.53px; left: 17.85px; width: 20.635px; height: 19.841px; }
+.chat-message-bar p { position: absolute; top: 9.13px; left: 47.22px; width: 230.159px; color: #777; font-size: 11.905px; line-height: 19.444px; font-weight: 400; }
+.chat-emoticon { position: absolute; top: 7.15px; left: 286.5px; width: 22.619px; height: 22.619px; }
+.chat-send { position: absolute; top: 7.15px; left: 323.01px; width: 23.413px; height: 23.016px; }
+.chat-system-navigation { position: absolute; top: 769.05px; left: 0; width: 375px; height: 43.651px; }
+.chat-system-navigation img { left: 0; top: -769.05px; }

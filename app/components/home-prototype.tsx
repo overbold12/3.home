@@ -4,7 +4,7 @@ import { useState } from "react";
 import Asset from "./prototype-asset";
 import "./home-prototype.css";
 
-export default function HomePrototype({ onAccounts, onCredit }: { onAccounts: () => void; onCredit: () => void }) {
+export default function HomePrototype({ onAccounts, onCredit, onChat }: { onAccounts: () => void; onCredit: () => void; onChat: () => void }) {
   const [showBanner, setShowBanner] = useState(true);
 
   return (
@@ -50,7 +50,8 @@ export default function HomePrototype({ onAccounts, onCredit }: { onAccounts: ()
           </div>
           <div className="prototype-service-card">
             <span className="prototype-service-icon prototype-customer-icon"><Asset file="customer-service.svg"/></span>
-            <h4>챗봇 상담 서비스</h4><Asset file="chevron.svg" className="prototype-service-chevron"/>
+            <h4 id="prototype-chat-title">챗봇 상담 서비스</h4><Asset file="chevron.svg" className="prototype-service-chevron"/>
+            <button type="button" className="prototype-chat-trigger" aria-labelledby="prototype-chat-title" onClick={onChat}/>
           </div>
         </div>
       </div>
