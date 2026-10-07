@@ -1,3 +1,11 @@
+.prototype-user-row .prototype-user {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+}
+
 .prototype-screen .prototype-account-card {
   height: 112px;
   margin-top: 40px;

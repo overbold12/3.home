@@ -4,7 +4,7 @@ import { useState } from "react";
 import Asset from "./prototype-asset";
 import "./home-prototype.css";
 
-export default function HomePrototype({ onAccounts, onCredit, onChat }: { onAccounts: () => void; onCredit: () => void; onChat: () => void }) {
+export default function HomePrototype({ onAccounts, onCredit, onChat, onProfile }: { onAccounts: () => void; onCredit: () => void; onChat: () => void; onProfile: () => void }) {
   const [showBanner, setShowBanner] = useState(true);
 
   return (
@@ -15,7 +15,7 @@ export default function HomePrototype({ onAccounts, onCredit, onChat }: { onAcco
           <div className="prototype-status-icons"><Asset file="cellular.svg"/><Asset file="wifi.svg"/><Asset file="battery.svg"/></div>
         </div>
         <div className="prototype-user-row">
-          <div className="prototype-user"><strong>김롯데님</strong><Asset file="chevron.svg"/></div>
+          <button type="button" className="prototype-user" onClick={onProfile}><strong>김롯데님</strong><Asset file="chevron.svg"/></button>
           <div className="prototype-header-icons">
             <span className="prototype-notification"><Asset file="notification.svg"/></span>
             <span className="prototype-search"><Asset file="search-circle.svg"/><Asset file="search-handle.svg"/></span>
