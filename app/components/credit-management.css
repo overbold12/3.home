@@ -1,0 +1,15 @@
+.credit-management-frame { width: 375px; min-height: 812px; background: #fff; color: #000; }
+.credit-management-header { position: relative; height: 98px; }
+.credit-management-back { position: absolute; left: 32px; top: 56px; display: grid; place-items: center; width: 32px; height: 32px; padding: 0; border: 0; background: transparent; }
+.credit-management-card { position: relative; width: 311px; height: 300px; margin: 32px 32px 0; border-radius: 12px; background: #fff; box-shadow: 0 3px 5px #0000000a, 0 5px 16px #00000014; }
+.credit-management-card #credit-management-title { position: absolute; left: 0; top: 33px; width: 100%; padding-left: 1px; font-size: 20px; font-weight: 700; line-height: 28px; letter-spacing: -.02px; text-align: center; white-space: nowrap; }
+.credit-management-card .credit-management-subtitle { position: absolute; left: 0; top: 69px; width: 100%; padding-left: 1px; color: #666; font-size: 12px; line-height: 20px; letter-spacing: -.012px; text-align: center; }
+.credit-management-subtitle strong { color: #e62423; font-size: 13px; font-weight: 700; letter-spacing: -.013px; }
+.credit-management-benefits { position: absolute; left: 10px; top: 108px; width: 293px; margin: 0; padding: 0; list-style: none; }
+.credit-management-benefits li { display: flex; align-items: center; gap: 4px; }
+.credit-management-benefits li + li { margin-top: 8px; }
+.credit-management-benefits li:last-child { margin-top: 12px; margin-left: -1px; }
+.credit-management-check { position: relative; display: block; flex-shrink: 0; width: 24px; height: 24px; overflow: hidden; }
+.credit-management-check img { position: absolute; left: -4px; top: -4px; width: 32px; height: 32px; }
+.credit-management-benefits p { font-size: 12px; font-weight: 400; line-height: 20px; letter-spacing: -.012px; white-space: nowrap; }
+.credit-management-action { display: flex; align-items: center; justify-content: center; width: 311px; height: 58px; margin: 89px 32px 0; border-radius: 4px; background: #e62423; color: #fff; font-size: 16px; line-height: 26px; font-weight: 700; letter-spacing: -.016px; }

@@ -12,7 +12,8 @@
   white-space: nowrap;
 }
 
-.prototype-account-card .prototype-account-trigger {
+.prototype-account-card .prototype-account-trigger,
+.prototype-service-card .prototype-credit-trigger {
   position: absolute;
   inset: 0;
   width: 100%;

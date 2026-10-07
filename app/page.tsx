@@ -31,7 +31,7 @@ export default function Home() {
   }
 
   function navigatePrototype(page: PrototypePage) {
-    if (page !== "accounts") setSelectedTab(page);
+    if (page === "home" || page === "products" || page === "all") setSelectedTab(page);
     setCurrentPage(page);
   }
 

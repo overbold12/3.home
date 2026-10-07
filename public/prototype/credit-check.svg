@@ -1,0 +1,10 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Vector">
+<path id="Path 4" d="M8 16.8571L13.1 22L25 10" stroke="#E62423" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<mask id="mask0_0_98" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="6" y="8" width="21" height="16">
+<path id="Path 4_2" d="M8 16.8571L13.1 22L25 10" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</mask>
+<g mask="url(#mask0_0_98)">
+</g>
+</g>
+</svg>
