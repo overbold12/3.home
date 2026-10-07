@@ -1,6 +1,7 @@
 ﻿"use client";
 
 import { useRef, useState, type ReactNode } from "react";
+import HomePrototype from "./components/home-prototype";
 
 function Icon({ name, size = 18 }: { name: string; size?: number }) {
   const paths: Record<string, ReactNode> = {
@@ -50,11 +51,7 @@ export default function Home() {
                 <h3 id="current-page-name">{currentPageName}</h3>
               </div>
               <div className="device-frame" role="region" aria-labelledby="current-page-name">
-                  <div className="placeholder-top"><span/><span/><span/></div>
-                  <div className="empty-state"><div className="empty-illustration"><div className="illustration-halo"/><div className="mini-phone"><div className="mini-notch"/><div className="mini-card"/><div className="mini-lines"><span/><span/></div><div className="mini-tiles"><span/><span/></div></div><div className="cursor-decoration"><Icon name="cursor" size={23}/></div><span className="spark spark-one">+</span><span className="spark spark-two">+</span></div>
-                    <span className="empty-eyebrow">READY FOR A NEW EXPERIENCE</span><h3>새로운 홈을 담을 공간</h3><p>홈화면 프레임이 배치될 영역입니다.</p>
-                  </div>
-                  <div className="placeholder-bottom"><span/></div>
+                <HomePrototype/>
               </div>
               <div className="device-caption">모바일 프레임 <span>·</span> 인터랙티브 미리보기</div>
             </div>
