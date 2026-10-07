@@ -4,18 +4,22 @@ import { useState } from "react";
 import Asset from "./prototype-asset";
 import "./home-prototype.css";
 
-export default function HomePrototype({ onAccounts, onCredit, onChat, onProfile }: { onAccounts: () => void; onCredit: () => void; onChat: () => void; onProfile: () => void }) {
+export type HomeVariant = "default" | "paid" | "overdue";
+export const homeVariantNames = { default: "기본", paid: "납부완료", overdue: "연체" };
+
+export default function HomePrototype({ variant, onAccounts, onCredit, onChat, onProfile }: { variant: HomeVariant; onAccounts: () => void; onCredit: () => void; onChat: () => void; onProfile: () => void }) {
   const [showBanner, setShowBanner] = useState(true);
+  const interactive = variant === "default";
 
   return (
-    <div data-figma-node="289:3352">
+    <div data-figma-node={variant === "paid" ? "300:299" : variant === "overdue" ? "300:464" : "289:3352"}>
       <header className="prototype-header">
         <div className="prototype-status" aria-hidden="true">
           <span className="prototype-time">9:41</span>
           <div className="prototype-status-icons"><Asset file="cellular.svg"/><Asset file="wifi.svg"/><Asset file="battery.svg"/></div>
         </div>
         <div className="prototype-user-row">
-          <button type="button" className="prototype-user" onClick={onProfile}><strong>김롯데님</strong><Asset file="chevron.svg"/></button>
+          {interactive ? <button type="button" className="prototype-user" onClick={onProfile}><strong>김롯데님</strong><Asset file="chevron.svg"/></button> : <div className="prototype-user"><strong>김롯데님</strong><Asset file="chevron.svg"/></div>}
           <div className="prototype-header-icons">
             <span className="prototype-notification"><Asset file="notification.svg"/></span>
             <span className="prototype-search"><Asset file="search-circle.svg"/><Asset file="search-handle.svg"/></span>
@@ -38,20 +42,20 @@ export default function HomePrototype({ onAccounts, onCredit, onChat, onProfile 
           <span className="prototype-service-icon prototype-inquiry-icon"><Asset file="credit-inquiry.svg"/></span>
           <h4 id="prototype-account-title">보유중인 계좌 확인하기</h4>
           <Asset file="chevron.svg" className="prototype-service-chevron"/>
-          <p>보유 대출 <strong>2건</strong><br/>이번 달 원리금 <strong>1,091,831원</strong></p>
-          <button type="button" className="prototype-account-trigger" aria-labelledby="prototype-account-title" onClick={onAccounts}/>
+          <p>보유 대출 <strong>2건</strong><br/>이번 달 원리금 <strong>{variant === "paid" ? "0원" : "1,091,831원"}</strong>{variant === "overdue" && <strong className="prototype-account-overdue">(미납)</strong>}</p>
+          {interactive && <button type="button" className="prototype-account-trigger" aria-labelledby="prototype-account-title" onClick={onAccounts}/>}
         </section>
 
         <div className="prototype-service-list">
           <div className="prototype-service-card">
             <span className="prototype-service-icon"><Asset file="credit-management.svg"/></span>
             <h4 id="prototype-credit-title">신용 관리하러 가기</h4><Asset file="chevron.svg" className="prototype-service-chevron"/>
-            <button type="button" className="prototype-credit-trigger" aria-labelledby="prototype-credit-title" onClick={onCredit}/>
+            {interactive && <button type="button" className="prototype-credit-trigger" aria-labelledby="prototype-credit-title" onClick={onCredit}/>}
           </div>
           <div className="prototype-service-card">
             <span className="prototype-service-icon prototype-customer-icon"><Asset file="customer-service.svg"/></span>
             <h4 id="prototype-chat-title">챗봇 상담 서비스</h4><Asset file="chevron.svg" className="prototype-service-chevron"/>
-            <button type="button" className="prototype-chat-trigger" aria-labelledby="prototype-chat-title" onClick={onChat}/>
+            {interactive && <button type="button" className="prototype-chat-trigger" aria-labelledby="prototype-chat-title" onClick={onChat}/>}
           </div>
         </div>
       </div>
@@ -60,7 +64,7 @@ export default function HomePrototype({ onAccounts, onCredit, onChat, onProfile 
         <Asset file="logo.png" className="prototype-voc-logo" alt="롯데캐피탈"/>
         <p>고객의 소리(VOC)를 통해 문의, 칭<br/>찬, 제안, 민원, 불편사항을 접수해<br/>주세요.</p>
         <div className="prototype-voc-crop" aria-hidden="true"><Asset file="voc-reference.png"/></div>
-        <button className="prototype-banner-close" type="button" aria-label="고객의 소리 안내 닫기" onClick={() => setShowBanner(false)}><Asset file="close.svg"/></button>
+        {interactive ? <button className="prototype-banner-close" type="button" aria-label="고객의 소리 안내 닫기" onClick={() => setShowBanner(false)}><Asset file="close.svg"/></button> : <span className="prototype-banner-close" aria-hidden="true"><Asset file="close.svg"/></span>}
       </aside>}
 
     </div>

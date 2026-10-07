@@ -3,6 +3,8 @@
 import { useRef, useState, type ReactNode } from "react";
 import PrototypeView, { prototypePageNames, type PrototypePage } from "./components/prototype-view";
 import type { PrototypeTab } from "./components/prototype-navigation";
+import { homeVariantNames, type HomeVariant } from "./components/home-prototype";
+import "./home-variants.css";
 
 function Icon({ name, size = 18 }: { name: string; size?: number }) {
   const paths: Record<string, ReactNode> = {
@@ -18,12 +20,14 @@ function Icon({ name, size = 18 }: { name: string; size?: number }) {
 export default function Home() {
   const [currentPage, setCurrentPage] = useState<PrototypePage>("home");
   const [selectedTab, setSelectedTab] = useState<PrototypeTab>("home");
-  const currentPageName = prototypePageNames[currentPage];
+  const [homeVariant, setHomeVariant] = useState<HomeVariant>("default");
+  const currentPageName = currentPage === "home" ? `${prototypePageNames.home} · ${homeVariantNames[homeVariant]}` : prototypePageNames[currentPage];
   const [prototypeVersion, setPrototypeVersion] = useState(0);
   const [notice, setNotice] = useState("");
   const stage = useRef<HTMLElement>(null);
 
   function restartPrototype() {
+    setHomeVariant("default");
     setCurrentPage("home");
     setSelectedTab("home");
     setPrototypeVersion((version) => version + 1);
@@ -31,8 +35,17 @@ export default function Home() {
   }
 
   function navigatePrototype(page: PrototypePage) {
+    if (homeVariant !== "default") return;
     if (page === "home" || page === "products" || page === "all") setSelectedTab(page);
     setCurrentPage(page);
+  }
+
+  function switchHomeVariant(variant: HomeVariant) {
+    setHomeVariant(variant);
+    setCurrentPage("home");
+    setSelectedTab("home");
+    setPrototypeVersion((version) => version + 1);
+    setNotice("");
   }
 
   async function toggleFullscreen() {
@@ -67,9 +80,12 @@ export default function Home() {
             <div className="device-wrap">
               <div className="current-page" aria-live="polite">
                 <h3 id="current-page-name">{currentPageName}</h3>
+                <div className="home-variant-chips" role="group" aria-label="메인 홈 버전 선택">
+                  {(Object.keys(homeVariantNames) as HomeVariant[]).map((variant) => <button key={variant} type="button" className="home-variant-chip" aria-pressed={homeVariant === variant} onClick={() => switchHomeVariant(variant)}>{homeVariantNames[variant]}</button>)}
+                </div>
               </div>
               <div className="device-frame" role="region" aria-labelledby="current-page-name">
-                <PrototypeView key={prototypeVersion} page={currentPage} selectedTab={selectedTab} onNavigate={navigatePrototype}/>
+                <PrototypeView key={prototypeVersion} page={currentPage} selectedTab={selectedTab} homeVariant={homeVariant} onNavigate={navigatePrototype}/>
               </div>
               <div className="device-caption">모바일 프레임 <span>·</span> 인터랙티브 미리보기</div>
             </div>

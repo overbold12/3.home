@@ -1,0 +1,4 @@
+.home-variant-chips { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 14px; }
+.home-variant-chip { padding: 7px 16px; border: 1px solid #dce0e6; border-radius: 999px; background: #fff; color: #68717f; font-size: 13px; line-height: 20px; font-weight: 600; white-space: nowrap; }
+.home-variant-chip:hover { border-color: #9ca5b2; color: #23262c; }
+.home-variant-chip[aria-pressed="true"] { border-color: #23262c; background: #23262c; color: #fff; }
