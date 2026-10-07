@@ -26,7 +26,14 @@ h1 { font-size: 23px; font-weight: 700; letter-spacing: -1px; line-height: 1.2; 
 .preview-panel { border: 1px solid #e2e5ea; border-radius: 15px; background: #fff; overflow: hidden; box-shadow: 0 5px 16px #29344603; }
 .preview-toolbar { min-height: 65px; display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; border-bottom: 1px solid #e9ebef; gap: 16px; }
 .preview-title { display: flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 600; }.preview-title > svg { color: #818791; }
-.toolbar-actions { display: flex; align-items: center; gap: 8px; }
+.toolbar-actions { display: flex; align-items: center; flex-shrink: 0; gap: 4px; padding: 4px; border: 1px solid #e8ebef; border-radius: 11px; background: #f5f6f8; }
+.restart-button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 34px; padding: 0 14px; border: 1px solid #e5e8ed; border-radius: 7px; background: #fff; color: #3e4652; box-shadow: 0 1px 2px #1d29390a; font-size: 12px; line-height: 1; font-weight: 600; letter-spacing: -.2px; white-space: nowrap; }
+.restart-button svg { flex-shrink: 0; color: #7c8593; }
+.restart-button:hover { background: #fcfcfd; color: #202733; border-color: #cbd2dc; box-shadow: 0 2px 4px #1d293910; }
+.restart-button:active { background: #eef1f5; box-shadow: none; }
+.toolbar-actions .icon-button { width: 34px; height: 34px; border-radius: 7px; }
+.preview-title { min-width: 0; }
+.preview-title > span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .icon-button { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border: 0; background: transparent; border-radius: 6px; color: #7b828e; }.icon-button:hover:not(:disabled) { background: #f0f2f5; color: #292e38; }
 .preview-canvas { position: relative; display: flex; align-items: center; justify-content: center; padding: 30px 24px 24px; background-color: #f2f4f7; background-image: radial-gradient(#d9dde5 .8px, transparent .8px); background-size: 18px 18px; }
 .device-wrap { width: 375px; max-width: 100%; }
@@ -41,8 +48,8 @@ h1 { font-size: 23px; font-weight: 700; letter-spacing: -1px; line-height: 1.2; 
 .page-footer { display: flex; justify-content: space-between; color: #a6acb6; font-size: 10px; padding: 20px 0 24px; }.page-footer > span:last-child { font-size: 8px; letter-spacing: 1.2px; }.footer-dot { padding: 0 7px; }
 .preview-panel:fullscreen { border: 0; border-radius: 0; display: flex; flex-direction: column; }.preview-panel:fullscreen .preview-canvas { flex: 1; min-height: 0; }.preview-panel:fullscreen .device-frame { height: min(700px, calc(100dvh - 190px)); }
 @media (min-width: 1600px) { .workspace { padding-top: 50px; }.device-frame { height: 610px; }.preview-canvas { padding-top: 36px; padding-bottom: 30px; } }
-@media (max-width: 760px) { .page-header { height: 82px; padding: 0 22px; gap: 12px; }.header-divider, .header-description { display: none; }h1 { font-size: 20px; }.presentation-badge { font-size: 10px; padding: 7px 10px; }.workspace { padding: 28px 18px 0; }.workspace-heading h2 { font-size: 22px; }.workspace-heading p { font-size: 11px; }.workspace-number { display: none; }.preview-toolbar { padding: 12px; gap: 8px; }.preview-title { gap: 6px; font-size: 11px; }.toolbar-actions { gap: 2px; }.preview-canvas { padding: 25px 19px 23px; }.device-frame { height: 520px; }.canvas-corner { display: none; }.preview-footer { padding: 12px; justify-content: center; }.interaction-note { display: none; }.page-footer > span:first-child { font-size: 9px; }.page-footer > span:last-child { font-size: 7px; } }
-@media (max-width: 420px) { .preview-toolbar { flex-wrap: wrap; }.toolbar-actions { margin-left: auto; }.presentation-badge { padding: 7px; font-size: 9px; }.page-footer { gap: 10px; flex-wrap: wrap; } }
+@media (max-width: 760px) { .page-header { height: 82px; padding: 0 22px; gap: 12px; }.header-divider, .header-description { display: none; }h1 { font-size: 20px; }.presentation-badge { font-size: 10px; padding: 7px 10px; }.workspace { padding: 28px 18px 0; }.workspace-heading h2 { font-size: 22px; }.workspace-heading p { font-size: 11px; }.workspace-number { display: none; }.preview-toolbar { padding: 12px; gap: 8px; }.preview-title { gap: 6px; font-size: 11px; }.toolbar-actions { gap: 3px; }.preview-canvas { padding: 25px 19px 23px; }.device-frame { height: 520px; }.canvas-corner { display: none; }.preview-footer { padding: 12px; justify-content: center; }.interaction-note { display: none; }.page-footer > span:first-child { font-size: 9px; }.page-footer > span:last-child { font-size: 7px; } }
+@media (max-width: 420px) { .preview-toolbar { flex-wrap: nowrap; }.preview-title > svg { display: none; }.toolbar-actions { margin-left: auto; }.restart-button { padding-inline: 10px; gap: 6px; }.presentation-badge { padding: 7px; font-size: 9px; }.page-footer { gap: 10px; flex-wrap: wrap; } }
 @media (prefers-reduced-motion: reduce) { button { transition: none; } }
 
 /* 메인(TO-BE), Figma 289:3352. The viewport is 375px at desktop size. */
@@ -101,3 +108,4 @@ h1 { font-size: 23px; font-weight: 700; letter-spacing: -1px; line-height: 1.2; 
 .prototype-nav-icon { position: relative; display: grid; place-items: center; width: 24px; height: 24px; }
 .prototype-home-icon img { position: absolute; }.prototype-home-icon img:first-child { left: 1.5px; top: 1.5px; }.prototype-home-icon img:last-child { left: 0; top: 0; }
 @media (prefers-reduced-motion: reduce) { .device-frame { scroll-behavior: auto; } }
+

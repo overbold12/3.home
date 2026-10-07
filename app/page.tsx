@@ -5,6 +5,7 @@ import HomePrototype from "./components/home-prototype";
 
 function Icon({ name, size = 18 }: { name: string; size?: number }) {
   const paths: Record<string, ReactNode> = {
+    reset: <><path d="M3 10a9 9 0 1 1 2 8"/><path d="M3 4v6h6"/></>,
     expand: <path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/>,
     phone: <><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M10 5h4m-3 14h2"/></>,
     cursor: <path d="m5 3 14 10-7 1-3 7L5 3Z"/>,
@@ -15,8 +16,14 @@ function Icon({ name, size = 18 }: { name: string; size?: number }) {
 
 export default function Home() {
   const currentPageName = "메인 홈";
+  const [prototypeVersion, setPrototypeVersion] = useState(0);
   const [notice, setNotice] = useState("");
   const stage = useRef<HTMLElement>(null);
+
+  function restartPrototype() {
+    setPrototypeVersion((version) => version + 1);
+    setNotice("");
+  }
 
   async function toggleFullscreen() {
     try {
@@ -41,7 +48,8 @@ export default function Home() {
         <section className="preview-panel" ref={stage} aria-label="프로토타입 시연 영역">
           <div className="preview-toolbar">
             <div className="preview-title"><Icon name="phone"/><span>홈화면 프로토타입</span></div>
-            <div className="toolbar-actions">
+            <div className="toolbar-actions" role="group" aria-label="시연 도구">
+              <button type="button" className="restart-button" onClick={restartPrototype}><Icon name="reset" size={16}/><span>처음부터</span></button>
               <button className="icon-button" title="전체 화면 전환" aria-label="전체 화면 전환" onClick={toggleFullscreen}><Icon name="expand"/></button>
             </div>
           </div>
@@ -51,7 +59,7 @@ export default function Home() {
                 <h3 id="current-page-name">{currentPageName}</h3>
               </div>
               <div className="device-frame" role="region" aria-labelledby="current-page-name">
-                <HomePrototype/>
+                <HomePrototype key={prototypeVersion}/>
               </div>
               <div className="device-caption">모바일 프레임 <span>·</span> 인터랙티브 미리보기</div>
             </div>
