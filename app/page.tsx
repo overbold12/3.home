@@ -30,9 +30,9 @@ export default function Home() {
     setNotice("");
   }
 
-  function navigatePrototype(tab: PrototypeTab) {
-    setSelectedTab(tab);
-    setCurrentPage(tab);
+  function navigatePrototype(page: PrototypePage) {
+    if (page !== "accounts") setSelectedTab(page);
+    setCurrentPage(page);
   }
 
   async function toggleFullscreen() {

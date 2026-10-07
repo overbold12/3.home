@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import Asset from "./prototype-asset";
+import "./home-prototype.css";
 
-export default function HomePrototype() {
+export default function HomePrototype({ onAccounts }: { onAccounts: () => void }) {
   const [showBanner, setShowBanner] = useState(true);
 
   return (
@@ -35,9 +36,10 @@ export default function HomePrototype() {
 
         <section className="prototype-account-card" aria-label="보유중인 계좌">
           <span className="prototype-service-icon prototype-inquiry-icon"><Asset file="credit-inquiry.svg"/></span>
-          <h4>보유중인 계좌 확인하기</h4>
+          <h4 id="prototype-account-title">보유중인 계좌 확인하기</h4>
           <Asset file="chevron.svg" className="prototype-service-chevron"/>
           <p>보유 대출 <strong>2건</strong><br/>이번 달 원리금 <strong>1,091,831원</strong></p>
+          <button type="button" className="prototype-account-trigger" aria-labelledby="prototype-account-title" onClick={onAccounts}/>
         </section>
 
         <div className="prototype-service-list">

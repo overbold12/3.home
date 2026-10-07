@@ -1,0 +1,24 @@
+.prototype-screen .prototype-account-card {
+  height: 112px;
+  margin-top: 40px;
+  padding: 16px 30px 13px 51px;
+}
+
+.prototype-screen .prototype-account-card p {
+  margin-top: 11px;
+  font-size: 14px;
+  color: var(--prototype-muted);
+  line-height: 22px;
+  white-space: nowrap;
+}
+
+.prototype-account-card .prototype-account-trigger {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: inherit;
+  background: transparent;
+}

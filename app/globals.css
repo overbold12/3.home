@@ -85,13 +85,11 @@ h1 { font-size: 23px; font-weight: 700; letter-spacing: -1px; line-height: 1.2; 
 .prototype-question-digits span { width: 29px; height: 37px; display: grid; place-items: center; background: #ebebeb; color: #4c4c4c; font-size: 20px; font-weight: 700; line-height: 28px; border-radius: 2px; }
 .prototype-limit-action { position: absolute; bottom: 0; left: 0; width: 100%; height: 58px; display: flex; align-items: center; justify-content: center; color: #fff; background: var(--prototype-red); font-size: 16px; line-height: 26px; font-weight: 700; border-radius: 4px; }
 .prototype-account-card, .prototype-service-card { position: relative; background: var(--prototype-surface); border: 1px solid var(--prototype-border); border-radius: 12px; }
-.prototype-account-card { height: 112px; margin-top: 40px; padding: 16px 30px 13px 51px; }
 .prototype-service-icon { display: grid; place-items: center; position: absolute; left: 14px; top: 12px; width: 32px; height: 32px; }
 .prototype-account-card .prototype-service-icon { left: 15px; top: 16px; }
 .prototype-inquiry-icon img { transform: scale(1.333333); transform-origin: center; }
 .prototype-customer-icon img { transform: scale(1.333333); }
 .prototype-service-chevron { position: absolute; right: 21px; top: 22px; }
-.prototype-account-card p { margin-top: 11px; font-size: 14px; color: var(--prototype-muted); line-height: 22px; white-space: nowrap; }
 .prototype-service-list { display: grid; gap: 12px; margin-top: 48px; }
 .prototype-service-card { height: 62px; padding: 17px 30px 17px 51px; }
 .prototype-service-card:last-child { padding-left: 53px; }
