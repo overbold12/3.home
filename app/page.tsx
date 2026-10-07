@@ -32,7 +32,7 @@ export default function Home() {
 
   function navigatePrototype(tab: PrototypeTab) {
     setSelectedTab(tab);
-    if (tab !== "all") setCurrentPage(tab);
+    setCurrentPage(tab);
   }
 
   async function toggleFullscreen() {

@@ -1,0 +1,28 @@
+.menu-frame { width: 375px; min-height: 2772px; background: #fff; color: #000; }
+.menu-close { position: absolute; left: 20px; top: 56px; display: grid; place-items: center; width: 32px; height: 32px; }
+.menu-profile { position: relative; display: flex; align-items: center; gap: 12px; width: 311px; height: 56px; margin: 20px 32px 0; overflow: hidden; }
+.menu-profile p { font-size: 20px; line-height: 28px; letter-spacing: -.1px; }
+.menu-avatar { position: relative; width: 54px; height: 56px; flex-shrink: 0; }
+.menu-profile-background { position: absolute; left: 0; top: 1px; }
+.menu-frame .menu-profile-image { position: absolute; left: -8px; top: -2px; width: 71px; height: 71px; mask-image: url('/prototype/menu-profile-mask.svg'); mask-size: 54px 54px; mask-position: 8px 3px; mask-repeat: no-repeat; }
+.menu-profile-chevron { position: absolute; right: 0; top: 19px; width: 16px; height: 16px; display: grid; place-items: center; }
+.menu-shortcuts { position: relative; width: 311px; height: 32px; margin: 30px 32px 0; display: flex; font-size: 15px; line-height: 22px; letter-spacing: -.1px; }
+.menu-shortcuts::after { content: ''; position: absolute; left: 155px; top: 2px; width: 1px; height: 28px; background: #ebebeb; }
+.menu-customer-shortcut, .menu-certificate-shortcut { position: relative; width: 155px; display: flex; align-items: center; gap: 8px; }
+.menu-customer-shortcut { width: 156px; flex-shrink: 0; }
+.menu-certificate-shortcut { padding-left: 32px; }
+.menu-service-icon, .menu-certificate-icon { position: relative; display: block; width: 32px; height: 32px; flex-shrink: 0; }
+.menu-service-icon img { position: absolute; left: 5px; top: 3.49px; }
+.menu-certificate-sheet { position: absolute; left: 4.5px; top: 3.76px; }
+.menu-certificate-mark { position: absolute; left: 10.17px; top: 12px; }
+.menu-lock-arch { position: absolute; left: 20.35px; top: 15.33px; width: 4.25px; height: 4.47px; border: 1px solid #000; border-radius: 80px 80px 0 0; }
+.menu-lock-body { position: absolute; left: 18.22px; top: 19.8px; width: 8.5px; height: 7.81px; border: 1px solid #000; border-radius: 2px; background: #c5ddff; }
+.menu-lock-line { position: absolute; left: 21.5px; top: 22.86px; transform: rotate(90deg); }
+.menu-groups { margin: 34px 32px 0; }
+.menu-group + .menu-group { margin-top: 32px; }
+.menu-frame .menu-group h4 { margin: 0; height: 39px; border-bottom: 1px solid #4c4c4c; font-size: 14px; line-height: 22px; font-weight: 700; letter-spacing: -.1px; }
+.menu-frame .menu-group:first-child h4 { height: 37px; }
+.menu-items { margin-top: 16px; }
+.menu-item { height: 48px; display: flex; align-items: center; font-size: 16px; line-height: 26px; letter-spacing: -.1px; color: #333; }
+.menu-privacy { color: #e62423; font-weight: 700; text-decoration: underline; text-underline-position: under; }
+.menu-logout { display: flex; align-items: center; justify-content: center; height: 56px; margin-top: 40px; border: 2px solid #2b4ca6; border-radius: 4px; color: #2b4ca6; font-size: 16px; font-weight: 700; line-height: 24px; letter-spacing: -.1px; }
