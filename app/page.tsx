@@ -4,6 +4,7 @@ import { useRef, useState, type ReactNode } from "react";
 import PrototypeView, { prototypePageNames, type PrototypePage } from "./components/prototype-view";
 import type { PrototypeTab } from "./components/prototype-navigation";
 import { homeVariantNames, type HomeVariant } from "./components/home-prototype";
+import LoanConditions from "./components/loan-conditions";
 import "./home-variants.css";
 
 function Icon({ name, size = 18 }: { name: string; size?: number }) {
@@ -109,12 +110,14 @@ export default function Home() {
         </> : <>
           <div className="workspace-heading"><div><span className="section-label">PREVIEW</span><h2>대출조건 입력 개편</h2><p>대출조건 입력 화면의 개선 내용을 확인하는 공간입니다.</p></div><span className="workspace-number">02 <span>/ LOAN</span></span></div>
           <section className="preview-panel" aria-labelledby="loan-preview-title">
-            <div className="preview-toolbar"><div className="preview-title"><Icon name="document"/><span id="loan-preview-title">대출조건 입력 프로토타입</span></div><span className="preparation-badge">준비 중</span></div>
-            <div className="loan-placeholder">
-              <div className="placeholder-icon"><Icon name="document" size={32}/></div>
-              <span className="section-label">COMING SOON</span>
-              <h3>대출조건 입력 화면을 준비하고 있어요</h3>
-              <p>개편 내용과 프로토타입은 추후 이곳에 추가될 예정입니다.</p>
+            <div className="preview-toolbar"><div className="preview-title"><Icon name="document"/><span id="loan-preview-title">대출조건 입력 프로토타입</span></div></div>
+            <div className="preview-canvas">
+              <div className="device-wrap">
+                <div className="current-page"><h3 id="loan-frame-title">대출조건 설정(TO-BE)</h3></div>
+                <div className="device-frame" role="region" aria-labelledby="loan-frame-title"><LoanConditions/></div>
+                <div className="device-caption">모바일 프레임 <span>·</span> 미리보기</div>
+              </div>
+              <span className="canvas-corner">PROTOTYPE WORKSPACE</span>
             </div>
           </section>
         </>}
