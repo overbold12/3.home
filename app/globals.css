@@ -17,7 +17,20 @@ h1 { font-size: 23px; font-weight: 700; letter-spacing: -1px; line-height: 1.2; 
 .header-description { font-size: 13px; color: #8a8e97; }
 .presentation-badge { margin-left: auto; background: #f7f8fa; border: 1px solid #eceef1; border-radius: 30px; padding: 9px 14px; font-size: 11px; color: #646a74; display: flex; align-items: center; gap: 7px; }
 .presentation-badge > span { width: 6px; height: 6px; border-radius: 50%; background: #e5b94a; }
-.workspace { max-width: 1320px; margin: 0 auto; padding: 42px 56px 0; }
+.workspace-layout { display: grid; grid-template-columns: 224px minmax(0, 1fr); min-height: calc(100dvh - 100px); }
+.workspace-sidebar { padding: 42px 20px; background: #fff; border-right: 1px solid #e9ebef; }
+.sidebar-label { padding: 0 14px; margin-bottom: 16px; color: #959ba6; font-size: 11px; font-weight: 700; }
+.section-navigation { position: sticky; top: 24px; display: grid; gap: 8px; }
+.section-navigation-item { display: flex; align-items: center; gap: 12px; width: 100%; padding: 14px; border: 1px solid transparent; border-radius: 10px; background: transparent; color: #737b88; font-size: 13px; font-weight: 600; text-align: left; }
+.section-navigation-item svg { flex-shrink: 0; }
+.section-navigation-item:hover { background: #f7f8fa; color: #23262c; }
+.section-navigation-item[aria-current="page"] { border-color: #f0dea0; background: #fff8df; color: #473c1e; }
+.workspace { width: 100%; min-width: 0; max-width: 1320px; margin: 0 auto; padding: 42px 56px 0; }
+.preparation-badge { padding: 6px 10px; border: 1px solid #e8ebef; border-radius: 20px; background: #f7f8fa; color: #7b828e; font-size: 11px; white-space: nowrap; }
+.loan-placeholder { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 560px; padding: 48px 24px; text-align: center; background: #f7f8fa; }
+.placeholder-icon { display: grid; place-items: center; width: 72px; height: 72px; margin-bottom: 24px; border: 1px solid #e8ebef; border-radius: 20px; background: #fff; color: #969eaa; }
+.loan-placeholder h3 { margin: 14px 0 10px; font-size: 20px; line-height: 1.5; letter-spacing: -.6px; }
+.loan-placeholder p { margin: 0; color: #9297a0; font-size: 13px; line-height: 1.8; }
 .workspace-heading { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 25px; }
 .section-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; color: #959ba6; }
 .workspace-heading h2 { font-size: 25px; letter-spacing: -1px; font-weight: 700; margin: 10px 0; }
@@ -50,6 +63,8 @@ h1 { font-size: 23px; font-weight: 700; letter-spacing: -1px; line-height: 1.2; 
 @media (min-width: 1600px) { .workspace { padding-top: 50px; }.device-frame { height: 610px; }.preview-canvas { padding-top: 36px; padding-bottom: 30px; } }
 @media (max-width: 760px) { .page-header { height: 82px; padding: 0 22px; gap: 12px; }.header-divider, .header-description { display: none; }h1 { font-size: 20px; }.presentation-badge { font-size: 10px; padding: 7px 10px; }.workspace { padding: 28px 18px 0; }.workspace-heading h2 { font-size: 22px; }.workspace-heading p { font-size: 11px; }.workspace-number { display: none; }.preview-toolbar { padding: 12px; gap: 8px; }.preview-title { gap: 6px; font-size: 11px; }.toolbar-actions { gap: 3px; }.preview-canvas { padding: 25px 19px 23px; }.device-frame { height: 520px; }.canvas-corner { display: none; }.preview-footer { padding: 12px; justify-content: center; }.interaction-note { display: none; }.page-footer > span:first-child { font-size: 9px; }.page-footer > span:last-child { font-size: 7px; } }
 @media (max-width: 420px) { .preview-toolbar { flex-wrap: nowrap; }.preview-title > svg { display: none; }.toolbar-actions { margin-left: auto; }.restart-button { padding-inline: 10px; gap: 6px; }.presentation-badge { padding: 7px; font-size: 9px; }.page-footer { gap: 10px; flex-wrap: wrap; } }
+@media (max-width: 1000px) and (min-width: 761px) { .workspace-layout { grid-template-columns: 196px minmax(0, 1fr); }.workspace { padding-inline: 28px; }.workspace-sidebar { padding-inline: 14px; } }
+@media (max-width: 760px) { .workspace-layout { grid-template-columns: minmax(0, 1fr); min-height: calc(100dvh - 82px); }.workspace-sidebar { padding: 14px 18px; border-right: 0; border-bottom: 1px solid #e9ebef; }.sidebar-label { display: none; }.section-navigation { position: static; grid-template-columns: repeat(2, minmax(0, 1fr)); }.section-navigation-item { justify-content: center; padding: 12px 8px; gap: 8px; font-size: 12px; }.loan-placeholder { min-height: 440px; }.loan-placeholder h3 { font-size: 18px; } }
 @media (prefers-reduced-motion: reduce) { button { transition: none; } }
 
 /* 메인(TO-BE), Figma 289:3352. The viewport is 375px at desktop size. */

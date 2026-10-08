@@ -13,11 +13,14 @@ function Icon({ name, size = 18 }: { name: string; size?: number }) {
     phone: <><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M10 5h4m-3 14h2"/></>,
     cursor: <path d="m5 3 14 10-7 1-3 7L5 3Z"/>,
     scroll: <><rect x="6" y="2" width="12" height="20" rx="6"/><path d="M12 6v4"/></>,
+    home: <><path d="m3 10 9-7 9 7v10H3Z"/><path d="M9 20v-7h6v7"/></>,
+    document: <><path d="M14 3H5v18h14V8Z"/><path d="M14 3v5h5M8 12h8M8 16h5"/></>,
   };
   return <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{paths[name]}</svg>;
 }
 
 export default function Home() {
+  const [selectedSection, setSelectedSection] = useState<"home" | "loan">("home");
   const [currentPage, setCurrentPage] = useState<PrototypePage>("home");
   const [selectedTab, setSelectedTab] = useState<PrototypeTab>("home");
   const [homeVariant, setHomeVariant] = useState<HomeVariant>("default");
@@ -61,12 +64,21 @@ export default function Home() {
     <div className="app-shell">
       <header className="page-header">
         <div className="brand-mark" aria-hidden="true"><span/><span/><span/><span/></div>
-        <div className="heading"><div className="eyebrow">HOME REDESIGN</div><h1>홈화면 개편</h1></div>
+        <div className="heading"><div className="eyebrow">APP IMPROVEMENTS</div><h1>개선사항 내용</h1></div>
         <div className="header-divider"/>
-        <p className="header-description">새로운 홈 경험을 미리 만나보세요.</p>
+        <p className="header-description">앱의 개선사항을 미리 만나보세요.</p>
         <span className="presentation-badge"><span/>프로토타입 시연</span>
       </header>
-      <main className="workspace">
+      <div className="workspace-layout">
+        <aside className="workspace-sidebar">
+          <div className="sidebar-label">개선 항목</div>
+          <nav className="section-navigation" aria-label="개선사항 메뉴">
+            <button type="button" className="section-navigation-item" aria-current={selectedSection === "home" ? "page" : undefined} aria-controls="improvement-content" onClick={() => setSelectedSection("home")}><Icon name="home"/><span>홈 화면</span></button>
+            <button type="button" className="section-navigation-item" aria-current={selectedSection === "loan" ? "page" : undefined} aria-controls="improvement-content" onClick={() => setSelectedSection("loan")}><Icon name="document"/><span>대출조건 입력</span></button>
+          </nav>
+        </aside>
+      <main className="workspace" id="improvement-content">
+        {selectedSection === "home" ? <>
         <div className="workspace-heading"><div><span className="section-label">PREVIEW</span><h2>새로운 홈, 새로운 시작</h2><p>직접 눌러보고 스크롤하며 달라진 홈화면을 살펴보세요.</p></div><span className="workspace-number">01 <span>/ HOME</span></span></div>
         <section className="preview-panel" ref={stage} aria-label="프로토타입 시연 영역">
           <div className="preview-toolbar">
@@ -94,8 +106,21 @@ export default function Home() {
           <div className="preview-footer"><span className="interaction-note"><span className="live-dot"/>프레임 안에서 자유롭게 시연해 보세요</span><div className="interaction-keys"><span><Icon name="cursor" size={14}/>클릭으로 탐색</span><span><Icon name="scroll" size={14}/>스크롤로 이동</span></div></div>
           {notice && <p className="notice" role="status">{notice}</p>}
         </section>
-        <footer className="page-footer"><span>더 나은 경험을 위한 변화의 시작</span><span>HOME REDESIGN <span className="footer-dot">·</span> PROTOTYPE</span></footer>
+        </> : <>
+          <div className="workspace-heading"><div><span className="section-label">PREVIEW</span><h2>대출조건 입력 개편</h2><p>대출조건 입력 화면의 개선 내용을 확인하는 공간입니다.</p></div><span className="workspace-number">02 <span>/ LOAN</span></span></div>
+          <section className="preview-panel" aria-labelledby="loan-preview-title">
+            <div className="preview-toolbar"><div className="preview-title"><Icon name="document"/><span id="loan-preview-title">대출조건 입력 프로토타입</span></div><span className="preparation-badge">준비 중</span></div>
+            <div className="loan-placeholder">
+              <div className="placeholder-icon"><Icon name="document" size={32}/></div>
+              <span className="section-label">COMING SOON</span>
+              <h3>대출조건 입력 화면을 준비하고 있어요</h3>
+              <p>개편 내용과 프로토타입은 추후 이곳에 추가될 예정입니다.</p>
+            </div>
+          </section>
+        </>}
+        <footer className="page-footer"><span>더 나은 경험을 위한 변화의 시작</span><span>APP IMPROVEMENTS <span className="footer-dot">·</span> PROTOTYPE</span></footer>
       </main>
+      </div>
     </div>
   );
 }
