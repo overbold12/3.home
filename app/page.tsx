@@ -5,6 +5,7 @@ import PrototypeView, { prototypePageNames, type PrototypePage } from "./compone
 import type { PrototypeTab } from "./components/prototype-navigation";
 import { homeVariantNames, type HomeVariant } from "./components/home-prototype";
 import LoanConditions from "./components/loan-conditions";
+import LoanInputRules from "./components/loan-input-rules";
 import "./home-variants.css";
 
 function Icon({ name, size = 18 }: { name: string; size?: number }) {
@@ -27,6 +28,7 @@ export default function Home() {
   const [homeVariant, setHomeVariant] = useState<HomeVariant>("default");
   const currentPageName = currentPage === "home" ? `${prototypePageNames.home} · ${homeVariantNames[homeVariant]}` : prototypePageNames[currentPage];
   const [prototypeVersion, setPrototypeVersion] = useState(0);
+  const [loanVersion, setLoanVersion] = useState(0);
   const [notice, setNotice] = useState("");
   const stage = useRef<HTMLElement>(null);
 
@@ -35,6 +37,11 @@ export default function Home() {
     setCurrentPage("home");
     setSelectedTab("home");
     setPrototypeVersion((version) => version + 1);
+    setNotice("");
+  }
+
+  function restartLoanPrototype() {
+    setLoanVersion(version => version + 1);
     setNotice("");
   }
 
@@ -109,16 +116,24 @@ export default function Home() {
         </section>
         </> : <>
           <div className="workspace-heading"><div><span className="section-label">PREVIEW</span><h2>대출조건 입력 개편</h2><p>대출조건 입력 화면의 개선 내용을 확인하는 공간입니다.</p></div><span className="workspace-number">02 <span>/ LOAN</span></span></div>
-          <section className="preview-panel" aria-labelledby="loan-preview-title">
-            <div className="preview-toolbar"><div className="preview-title"><Icon name="document"/><span id="loan-preview-title">대출조건 입력 프로토타입</span></div></div>
-            <div className="preview-canvas">
+          <section className="preview-panel loan-preview-panel" ref={stage} aria-labelledby="loan-preview-title">
+            <div className="preview-toolbar">
+              <div className="preview-title"><Icon name="document"/><span id="loan-preview-title">대출조건 입력 프로토타입</span></div>
+              <div className="toolbar-actions" role="group" aria-label="시연 도구">
+                <button type="button" className="restart-button" onClick={restartLoanPrototype}><Icon name="reset" size={16}/><span>처음부터</span></button>
+                <button type="button" className="icon-button" title="전체 화면 전환" aria-label="전체 화면 전환" onClick={toggleFullscreen}><Icon name="expand"/></button>
+              </div>
+            </div>
+            <div className="preview-canvas loan-preview-canvas">
               <div className="device-wrap">
                 <div className="current-page"><h3 id="loan-frame-title">대출조건 설정(TO-BE)</h3></div>
-                <div className="device-frame" role="region" aria-labelledby="loan-frame-title"><LoanConditions/></div>
+                <div className="device-frame" role="region" aria-labelledby="loan-frame-title"><LoanConditions key={loanVersion}/></div>
                 <div className="device-caption">모바일 프레임 <span>·</span> 미리보기</div>
               </div>
+              <LoanInputRules/>
               <span className="canvas-corner">PROTOTYPE WORKSPACE</span>
             </div>
+            {notice && <p className="notice" role="status">{notice}</p>}
           </section>
         </>}
         <footer className="page-footer"><span>더 나은 경험을 위한 변화의 시작</span><span>APP IMPROVEMENTS <span className="footer-dot">·</span> PROTOTYPE</span></footer>

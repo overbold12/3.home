@@ -1,0 +1,20 @@
+.loan-preview-panel { container-type: inline-size; }
+.loan-preview-canvas { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 375px) minmax(0, 1fr); grid-template-rows: auto auto auto; align-items: start; column-gap: 24px; row-gap: 0; }
+.loan-preview-canvas > .device-wrap { grid-column: 2; grid-row: 1 / span 3; display: grid; grid-template-rows: subgrid; }
+.loan-input-rules { grid-column: 3; grid-row: 2; align-self: center; width: 100%; max-width: 340px; min-width: 0; padding: 20px; border: 1px solid #e2e5ea; border-radius: 12px; background: #fafbfc; }
+.loan-rules-heading h3 { margin: 8px 0; color: #646a74; font-size: 16px; line-height: 1.5; font-weight: 700; letter-spacing: -.5px; }
+.loan-input-rules p { margin: 0; color: #7b828e; font-size: 12px; line-height: 1.8; word-break: keep-all; overflow-wrap: anywhere; }
+.loan-rules-section { margin-top: 16px; padding-top: 14px; border-top: 1px solid #eceef1; }
+.loan-rules-section h4 { margin: 0 0 10px; color: #3e4652; font-size: 12px; font-weight: 700; line-height: 1.6; }
+.loan-rules-section table { width: 100%; border-collapse: collapse; font-size: 11px; line-height: 1.7; text-align: left; }
+.loan-rules-section th, .loan-rules-section td { padding: 9px 6px; white-space: nowrap; }
+.loan-rules-section thead { background: #f7f8fa; color: #7b828e; }
+.loan-rules-section thead th { font-weight: 500; }
+.loan-rules-section tbody tr + tr { border-top: 1px solid #eceef1; }
+.loan-rules-section tbody th { font-weight: 600; color: #3e4652; }
+.loan-rules-section tbody td { color: #646a74; }
+.loan-rules-section ul { display: grid; gap: 8px; margin: 0; padding-left: 15px; color: #7b828e; font-size: 12px; line-height: 1.8; word-break: keep-all; }
+.loan-rules-section li::marker { color: #c1c6cf; }
+.loan-rules-section strong { color: #3e4652; font-weight: 600; }
+.loan-preview-panel:fullscreen .loan-preview-canvas { overflow-y: auto; align-items: start; }
+@container (max-width: 1040px) { .loan-preview-canvas { grid-template-columns: minmax(0, 375px); grid-template-rows: none; justify-content: center; row-gap: 24px; }.loan-preview-canvas > .device-wrap, .loan-input-rules { grid-column: 1; grid-row: auto; }.loan-preview-canvas > .device-wrap { display: block; }.loan-input-rules { max-width: none; } }
