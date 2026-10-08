@@ -21,9 +21,10 @@
 .loan-conditions-review .loan-conditions-payment dd { margin-left: 1px; color: #2b4ca6; }
 .loan-conditions-schedule { position: absolute; right: 0; bottom: 12px; display: flex; align-items: center; padding: 6px 13px; border-radius: 18px; background: #ebebeb; color: #4c4c4c; font-size: 13px; line-height: 20px; font-weight: 700; }
 .loan-conditions-divider { margin: 47px 3px 0; }
-.loan-conditions-fields { margin: 48px 1px 0 3px; }
-.loan-conditions-fields .loan-conditions-hint { margin-top: 2px; color: #666; font-size: 12px; line-height: 20px; letter-spacing: -.012px; }
-.loan-conditions-fields dl { display: grid; gap: 28px; margin: 28px 0 0; }
+.loan-conditions-fields { margin: 36px 1px 0 3px; }
+.loan-conditions-fields #loan-conditions-fields-title { margin-left: 1px; }
+.loan-conditions-fields .loan-conditions-hint { margin-top: 2px; margin-left: 1px; color: #666; font-size: 12px; line-height: 20px; letter-spacing: -.012px; }
+.loan-conditions-fields dl { display: grid; gap: 28px; margin: 40px 0 0; }
 .loan-conditions-fields dt { display: flex; align-items: center; gap: 3px; color: #4c4c4c; font-size: 15px; line-height: 20px; letter-spacing: -.015px; }
 .loan-conditions-fields dd { position: relative; margin: 1px 0 0; font-size: 16px; line-height: 26px; font-weight: 700; }
 .loan-conditions-chevron { position: absolute; top: -3px; right: 0; display: grid; place-items: center; width: 48px; height: 32px; }

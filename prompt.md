@@ -2,11 +2,10 @@
 
 ## 요청사항
 
-- 홈 화면에서 홈카드의 서브 텍스트를 '신용대출·자동차대출·햇살론 -> 심사 가능한' 이렇게 바꾸려고 해
-  피그마에 이미 디자인 변경 해놨으니, URL 참고해서 웹도 바꿔줘
-- 기본, 납부완료, 연체 등 모든 변경 가능한 영역에 공통 적용해야 해
+- 대출조건 설정 항목에서, 조건입력 텍스트와 선택한 대출기간에 따라 최대 한도가 달라진다는 2개 텍스트의 높이를 좀 조정했어.
+  url을 참고해서 웹에도 조정해줘
 
 ## 참고사항
 
-- 프레임을 확인 할 URL : https://www.figma.com/design/VOdc8ksUmREL5maAgtbAxl/%25EA%25B0%259C%25EC%2584%25A0-%25EB%25AF%25B8%25ED%258C%2585?node-id=283-2775&p=f&t=BXqJWl912i1JvvJM-0
+- 프레임을 확인 할 URL : https://www.figma.com/design/VOdc8ksUmREL5maAgtbAxl/%25EA%25B0%259C%25EC%2584%25A0-%25EB%25AF%25B8%25ED%258C%2585?node-id=113-719&p=f&t=BXqJWl912i1JvvJM-0
 - 내가 지시한 거 이외의 개발은 하지 말아줘
