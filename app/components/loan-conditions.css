@@ -48,7 +48,7 @@
 .loan-amount-form > label { display: block; height: 24px; margin-left: 1px; color: #666; font-size: 16px; line-height: 26px; font-weight: 700; }
 .loan-amount-input-wrap { display: flex; align-items: center; gap: 3px; height: 53px; margin: 12px 0 0 1px; border-bottom: 1px solid #4c4c4c; padding-top: 8px; padding-right: 2px; }
 .loan-amount-input-wrap input { min-width: 0; width: 100%; border: 0; padding: 0; background: transparent; color: #000; font-size: 28px; line-height: 40px; font-weight: 700; text-align: right; }
-.loan-amount-input-wrap input:focus-visible { outline-offset: 0; }
+.loan-amount-input-wrap input:focus, .loan-amount-input-wrap input:focus-visible { outline: none; box-shadow: none; }
 .loan-amount-input-wrap > span { flex-shrink: 0; color: #4c4c4c; font-size: 16px; line-height: 26px; }
 .loan-amount-form .loan-amount-hint { display: flex; gap: 4px; margin-top: 18px; color: #6a8bb8; font-size: 13px; line-height: 20px; }
 .loan-amount-hint > span:first-child { flex-shrink: 0; padding: 3px 1px 0; }
@@ -79,8 +79,6 @@
 .is-principal .loan-graph-fill { height: 22px; }.is-principal .loan-graph-interest { top: 10px; }.is-principal .loan-graph-principal { top: 7px; }.is-principal .loan-graph-ellipsis { top: 30px; }
 .loan-loading { position: absolute; inset: 0; z-index: 6; display: grid; place-items: center; background: #ffffffdc; }
 .loan-loading img { animation: loan-spinner-turn .75s linear infinite; }
-.loan-conditions-reveal { transform-origin: top; animation: loan-conditions-unfold .35s ease-out; }
 @keyframes loan-sheet-rise { from { transform: translateY(100%); } to { transform: translateY(0); } }
 @keyframes loan-spinner-turn { to { transform: rotate(360deg); } }
-@keyframes loan-conditions-unfold { from { opacity: 0; transform: translateY(18px) scaleY(.97); } to { opacity: 1; transform: translateY(0) scaleY(1); } }
-@media (prefers-reduced-motion: reduce) { .loan-sheet, .loan-loading img, .loan-conditions-reveal { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .loan-sheet, .loan-loading img { animation: none; } }

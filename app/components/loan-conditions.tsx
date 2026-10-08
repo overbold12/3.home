@@ -11,8 +11,6 @@ export default function LoanConditions() {
   const [sheet, setSheet] = useState<LoanSheet | null>(null);
   const [amountDraft, setAmountDraft] = useState("");
   const [loading, setLoading] = useState(false);
-  const [revision, setRevision] = useState(0);
-  const scrollArea = useRef<HTMLDivElement>(null);
   const trigger = useRef<HTMLButtonElement | null>(null);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -31,6 +29,15 @@ export default function LoanConditions() {
 
   function normalizedAmount() { return clampAmount(Number(amountDraft.replaceAll(",", "")), conditions.period); }
 
+  function completeAmount() {
+    const amount = normalizedAmount();
+    if (Number(amountDraft.replaceAll(",", "")) !== amount) {
+      setAmountDraft(amount.toLocaleString("ko-KR"));
+      return;
+    }
+    applyConditions(changeAmount(conditions, amount));
+  }
+
   function applyConditions(nextConditions: LoanConditionsValue) {
     if (timer.current) return;
     setSheet(null);
@@ -38,16 +45,14 @@ export default function LoanConditions() {
     timer.current = setTimeout(() => {
       setConditions(nextConditions);
       setLoading(false);
-      setRevision(value => value + 1);
       timer.current = null;
-      scrollArea.current?.scrollTo({ top: 0, behavior: "instant" });
-      requestAnimationFrame(() => scrollArea.current?.focus({ preventScroll: true }));
+      requestAnimationFrame(() => trigger.current?.focus({ preventScroll: true }));
     }, 650);
   }
 
   return (
     <div className="prototype-screen loan-conditions-screen" aria-busy={loading}>
-      <div ref={scrollArea} className="prototype-scroll" tabIndex={0} role="region" aria-label="대출조건 설정 스크롤 영역" inert={sheet !== null || loading}>
+      <div className="prototype-scroll" tabIndex={0} role="region" aria-label="대출조건 설정 스크롤 영역" inert={sheet !== null || loading}>
         <div className="prototype-content loan-conditions-content" data-figma-node="335:4960">
           <header className="loan-conditions-header">
             <div className="prototype-status loan-conditions-status" aria-hidden="true">
@@ -63,7 +68,7 @@ export default function LoanConditions() {
               </div>
             </div>
           </header>
-          <div key={revision} className={`loan-conditions-body${revision > 0 ? " loan-conditions-reveal" : ""}`}>
+          <div className="loan-conditions-body">
             <h4 className="loan-conditions-heading">김롯데님의 심사 결과를<br/>알려드려요</h4>
             <section className="loan-conditions-review" aria-label="적용된 대출조건" aria-live="polite">
               <dl>
@@ -87,7 +92,7 @@ export default function LoanConditions() {
           </div>
         </div>
       </div>
-      {sheet && <LoanSheets sheet={sheet} conditions={conditions} draft={amountDraft} onDraftChange={setAmountDraft} onNormalize={() => setAmountDraft(normalizedAmount().toLocaleString("ko-KR"))} onAmountComplete={() => applyConditions(changeAmount(conditions, normalizedAmount()))} onPeriod={period => applyConditions(changePeriod(conditions, period))} onRepayment={repayment => applyConditions({ ...conditions, repayment })} onClose={closeSheet}/>}
+      {sheet && <LoanSheets sheet={sheet} conditions={conditions} draft={amountDraft} onDraftChange={setAmountDraft} onNormalize={() => setAmountDraft(normalizedAmount().toLocaleString("ko-KR"))} onAmountComplete={completeAmount} onPeriod={period => applyConditions(changePeriod(conditions, period))} onRepayment={repayment => applyConditions({ ...conditions, repayment })} onClose={closeSheet}/>}
       {loading && <div className="loan-loading" role="status" aria-label="대출조건 계산 중"><Asset file="LoadingSpinner.png"/></div>}
     </div>
   );

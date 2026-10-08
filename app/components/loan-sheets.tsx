@@ -54,9 +54,9 @@ export default function LoanSheets({ sheet, conditions, draft, onDraftChange, on
         {sheet === "amount" ? <form className="loan-amount-form" onSubmit={event => { event.preventDefault(); onNormalize(); }}>
           <dl className="loan-amount-limits"><div><dt>최대한도</dt><dd>{maximumAmount(conditions.period).toLocaleString("ko-KR")}만원</dd></div><div><dt>최소한도</dt><dd>100만원</dd></div></dl>
           <label id="loan-sheet-title" htmlFor="loan-amount-input">신청 금액</label>
-          <div className="loan-amount-input-wrap"><input id="loan-amount-input" type="text" inputMode="numeric" enterKeyHint="done" autoComplete="off" value={draft} onChange={event => onDraftChange(event.target.value.replace(/[^\d,-]/g, ""))}/><span>만원</span></div>
+          <div className="loan-amount-input-wrap"><input id="loan-amount-input" type="text" inputMode="numeric" enterKeyHint="done" autoComplete="off" value={draft} onChange={event => onDraftChange(event.target.value.replace(/[^\d,-]/g, ""))} onBlur={onNormalize} onKeyDown={event => { if (event.key === "Enter") { event.preventDefault(); onNormalize(); } }}/><span>만원</span></div>
           <p className="loan-amount-hint"><span><Asset file="loan-amount-info.svg"/></span><span>신청 금액이 1,000만원 미만일 경우 대출 기간은 60개월까지만 가능해요.</span></p>
-          <button type="button" className="loan-amount-complete" onClick={onAmountComplete}>완료</button>
+          <button type="button" className="loan-amount-complete" onPointerDown={event => event.preventDefault()} onClick={onAmountComplete}>완료</button>
         </form> : sheet === "period" ? <div className="loan-period-options">
           <h4 id="loan-sheet-title">대출 기간을 선택해주세요</h4>
           <div role="group" aria-label="대출 기간">{loanPeriods.map(period => {
