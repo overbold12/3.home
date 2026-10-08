@@ -29,7 +29,7 @@ export default function HomePrototype({ variant, onAccounts, onCredit, onChat, o
 
       <div className="prototype-main">
         <section className="prototype-limit-card" aria-label="통합 한도조회">
-          <p className="prototype-products">신용대출 · 자동차대출 · 햇살론</p>
+          <p className="prototype-products">심사 가능한</p>
           <h4>모든 상품 한도 확인하기</h4>
           <div className="prototype-limit-values">
             <div><span className="prototype-value-label">한도</span><div className="prototype-question-digits" aria-label="한도 조회 전">{Array.from({ length: 4 }, (_, index) => <span key={index}>?</span>)}</div></div>
