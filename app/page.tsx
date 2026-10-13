@@ -26,6 +26,7 @@ export default function Home() {
   const [currentPage, setCurrentPage] = useState<PrototypePage>("home");
   const [selectedTab, setSelectedTab] = useState<PrototypeTab>("home");
   const [homeVariant, setHomeVariant] = useState<HomeVariant>("default");
+  const [showBottomNavigation, setShowBottomNavigation] = useState(false);
   const currentPageName = currentPage === "home" ? `${prototypePageNames.home} · ${homeVariantNames[homeVariant]}` : prototypePageNames[currentPage];
   const [prototypeVersion, setPrototypeVersion] = useState(0);
   const [loanVersion, setLoanVersion] = useState(0);
@@ -59,6 +60,12 @@ export default function Home() {
     setNotice("");
   }
 
+  function switchBottomNavigation(show: boolean) {
+    setShowBottomNavigation(show);
+    setCurrentPage("home");
+    setSelectedTab("home");
+  }
+
   async function toggleFullscreen() {
     try {
       if (document.fullscreenElement) await document.exitFullscreen();
@@ -89,8 +96,12 @@ export default function Home() {
         {selectedSection === "home" ? <>
         <div className="workspace-heading"><div><span className="section-label">PREVIEW</span><h2>새로운 홈, 새로운 시작</h2><p>직접 눌러보고 스크롤하며 달라진 홈화면을 살펴보세요.</p></div><span className="workspace-number">01 <span>/ HOME</span></span></div>
         <section className="preview-panel" ref={stage} aria-label="프로토타입 시연 영역">
-          <div className="preview-toolbar">
+          <div className="preview-toolbar home-preview-toolbar">
             <div className="preview-title"><Icon name="phone"/><span>홈화면 프로토타입</span></div>
+            <div className="bottom-navigation-options" role="group" aria-label="하단 내비게이션 바 버전 선택">
+              <button type="button" aria-pressed={!showBottomNavigation} onClick={() => switchBottomNavigation(false)}>하단 내비게이션 없음</button>
+              <button type="button" aria-pressed={showBottomNavigation} onClick={() => switchBottomNavigation(true)}>하단 내비게이션 있음</button>
+            </div>
             <div className="toolbar-actions" role="group" aria-label="시연 도구">
               <button type="button" className="restart-button" onClick={restartPrototype}><Icon name="reset" size={16}/><span>처음부터</span></button>
               <button className="icon-button" title="전체 화면 전환" aria-label="전체 화면 전환" onClick={toggleFullscreen}><Icon name="expand"/></button>
@@ -105,7 +116,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="device-frame" role="region" aria-labelledby="current-page-name">
-                <PrototypeView key={prototypeVersion} page={currentPage} selectedTab={selectedTab} homeVariant={homeVariant} onNavigate={navigatePrototype}/>
+                <PrototypeView key={prototypeVersion} page={currentPage} selectedTab={selectedTab} homeVariant={homeVariant} showBottomNavigation={showBottomNavigation} onNavigate={navigatePrototype}/>
               </div>
               <div className="device-caption">모바일 프레임 <span>·</span> 인터랙티브 미리보기</div>
             </div>

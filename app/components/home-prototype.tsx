@@ -7,12 +7,12 @@ import "./home-prototype.css";
 export type HomeVariant = "default" | "paid" | "overdue";
 export const homeVariantNames = { default: "기본", paid: "납부완료", overdue: "연체" };
 
-export default function HomePrototype({ variant, onAccounts, onCredit, onChat, onProfile }: { variant: HomeVariant; onAccounts: () => void; onCredit: () => void; onChat: () => void; onProfile: () => void }) {
+export default function HomePrototype({ variant, showBottomNavigation, onAccounts, onCredit, onChat, onProfile }: { variant: HomeVariant; showBottomNavigation: boolean; onAccounts: () => void; onCredit: () => void; onChat: () => void; onProfile: () => void }) {
   const [showBanner, setShowBanner] = useState(true);
   const interactive = variant === "default";
 
   return (
-    <div data-figma-node={variant === "paid" ? "300:299" : variant === "overdue" ? "300:464" : "289:3352"}>
+    <div data-figma-node={showBottomNavigation ? (variant === "paid" ? "300:299" : variant === "overdue" ? "300:464" : "289:3352") : (variant === "paid" ? "442:1453" : variant === "overdue" ? "442:1387" : "442:1321")}>
       <header className="prototype-header">
         <div className="prototype-status" aria-hidden="true">
           <span className="prototype-time">9:41</span>
@@ -22,7 +22,7 @@ export default function HomePrototype({ variant, onAccounts, onCredit, onChat, o
           {interactive ? <button type="button" className="prototype-user" onClick={onProfile}><strong>김롯데님</strong><Asset file="chevron.svg"/></button> : <div className="prototype-user"><strong>김롯데님</strong><Asset file="chevron.svg"/></div>}
           <div className="prototype-header-icons">
             <span className="prototype-notification"><Asset file="notification.svg"/></span>
-            <span className="prototype-search"><Asset file="search-circle.svg"/><Asset file="search-handle.svg"/></span>
+            {showBottomNavigation ? <span className="prototype-search"><Asset file="search-circle.svg"/><Asset file="search-handle.svg"/></span> : <span className="prototype-header-menu" aria-label="전체 메뉴"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5.25 6.375h14.25M5.25 12h14.25M5.25 17.625h14.25" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg></span>}
           </div>
         </div>
       </header>
